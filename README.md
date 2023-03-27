@@ -11,7 +11,7 @@ The target audience is developers wanting to extend or implement osmio functiona
 If you are looking to use osmio as a library in your own project, take a look at the [meta repo](https://github.com/RedNicStone/libosmio). \
 \
 What this repo is used for:
-- As header for osmio loaders [For a custom loader implementation](#for-a-custom-loader-implementation)
+- As header for osmio loaders, see section [For a custom loader implementation](#for-a-custom-loader-implementation)
 - As header for osmio ICD's, see section [For a custom ICD](#for-a-custom-icd)
 - Generating the libosmio documentation
 - Linking against libosmio dynamically, which is strongly advised against [^1]
