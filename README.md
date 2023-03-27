@@ -36,7 +36,7 @@ All documentation on osmio functions as well as how to build your custom loader 
 ## Contributing to this repository
 Unfortunately contributions to this repository will be accepted only under rare circumstances. \
 Since this repo holds the API footprint of libosmio, any change is likely to impact or even break existing loaders and ICDs. \
-The repo and CMake files are unlikely to have any impact though, so feel free to open contributions to these.
+The readme and CMake files are unlikely to have any impact though, so feel free to open contributions to these.
 
 ## Opening issues on this repository
 Issues regarding the header files provided by this repository are likely to force an API change, so they fall under the same restrictions as [contributing](#contributing-to-this-repository).
