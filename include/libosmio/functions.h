@@ -14,10 +14,10 @@
 // -------------------- //
 
 // OsInstance
-OS_DECLARE_FUNCTION_ICD(void, osCreateInstance,
-                        OsInstance* pInstance)
-OS_DECLARE_FUNCTION_ICD(void, osDestroyInstance,
-                        OsInstance pInstance)
+OS_DECLARE_FUNCTION(void, osCreateInstance,
+                    OsInstance* pInstance)
+OS_DECLARE_FUNCTION(void, osDestroyInstance,
+                    OsInstance pInstance)
 
 // OsProtocol
 OS_DECLARE_FUNCTION_ICD(void, osEnumerateProtocols,
