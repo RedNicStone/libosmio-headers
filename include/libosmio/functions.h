@@ -56,6 +56,8 @@ OS_DECLARE_FUNCTION_ICD(void, osEnumerateInterfaceCallbacks,
                         OsInterface interface, uint32_t* callbackCount, OsCallback** pCallbacks)
 OS_DECLARE_FUNCTION_ICD(void, osEnumerateDeviceCallbacks,
                         OsDevice device, uint32_t* callbackCount, OsCallback** pCallbacks)
+OS_DECLARE_FUNCTION_ICD(void, osEnumerateTransactionCallbacks,
+                        OsDevice device, uint32_t* callbackCount, OsCallback** pCallbacks)
 OS_DECLARE_FUNCTION_ICD(void, osGetCallbackInfo,
                         OsCallback callback, OsCallbackInfo* pCallbackInfo)
 OS_DECLARE_FUNCTION_ICD(OsResult, osRegisterCallback,
@@ -66,14 +68,20 @@ OS_DECLARE_FUNCTION_ICD(void, osRemoveAllCallbacks,
                         OsCallback callback)
 
 // OsTransaction
+OS_DECLARE_FUNCTION_ICD(void, osGetInterfaceTransactionInfo,
+                        OsInterface interface, OsTransactionInfo* transactionInfo);
+OS_DECLARE_FUNCTION_ICD(void, osCreateTransaction,
+                        OsTransactionCreateInfo transactionCreateInfo, OsTransaction* transaction);
 OS_DECLARE_FUNCTION_ICD(void, osBeginTransaction,
-                        OsTransactionInfo transactionInfo, OsTransaction* transaction);
+                        OsTransaction transaction);
 OS_DECLARE_FUNCTION_ICD(void, osWaitForTransaction,
                         OsTransaction transaction)
+OS_DECLARE_FUNCTION_ICD(void, osDestroyTransaction,
+                        OsTransaction transaction);
 
 // OsICD
 struct OsICD;
 OS_DECLARE_FUNCTION(void, osRegisterICD,
-                    OsICD* icd);
+                    const OsICD* icd);
 
 #endif //LIBOSMIO_FUNCTIONS_H

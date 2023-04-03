@@ -14,70 +14,85 @@
 // Structures //
 // ---------- //
 
-typedef struct OsProtocolInfo {
-    OsStructureType sType;
-    void* pNext;
-    char* name;
-} OsProtocolInfo;
-
 typedef struct OsAddressType {
     OsStructureType sType;
-    void* pNext;
+    void*           pNext;
     OsAddressFormat format;
-    uint32_t maximumLength;
+    uint32_t        maximumLength;
 } OsAddressType;
 
-typedef struct OsProtocolFeatures {
+typedef struct OsProtocolInfo {
     OsStructureType sType;
-    void* pNext;
-    OsAddressType addressType;
-    uint32_t maximumDeviceCount;
-} OsProtocolFeatures;
+    void*           pNext;
+    char*           name;
+    OsAddressType   addressType;
+} OsProtocolInfo;
+
+typedef struct OsRange {
+    uint32_t begin;
+    uint32_t end;
+} OsRange;
+
+typedef struct OsPortRange {
+    OsRange* portRanges;
+    uint32_t portRangesCount;
+} OsPortRange;
 
 typedef struct OsPhysicalInterfaceInfo {
     OsStructureType sType;
-    void* pNext;
-    uint32_t transmissionRate;
+    void*           pNext;
+    uint32_t        minimumTransmissionRate;
+    uint32_t        maximumTransmissionRate;
 } OsPhysicalInterfaceInfo;
 
-typedef struct OsDeviceCreateInfo {
-    OsStructureType sType;
-    void* pNext;
-    OsInterface interface;
-    void* address;
-} OsDeviceCreateInfo;
-
-typedef struct OsInterfaceCreateInfo {
-    OsStructureType sType;
-    void* pNext;
-    OsPhysicalInterface physicalInterface;
-} OsInterfaceCreateInfo;
-
-typedef struct OsBufferCreateInfo {
-    OsStructureType sType;
-    void* pNext;
-    OsBufferUsage usage;
-    OsBufferType type;
-    OsBufferBehaviour behaviour;
-    OsAddressFormat format;
-    uint32_t maximumSize;
-} OsBufferCreateInfo;
-
-typedef struct OsCallbackRegistryInfo {
-    OsStructureType sType;
-    void* pNext;
-    void (*pFunction) (void* userData);
-    void* userData;
-} OsCallbackRegistryInfo;
+typedef struct OsTransactionInfo {
+    OsStructureType         sType;
+    void*                   pNext;
+    OsTransactionOperation* supportedOperations;
+    uint32_t                supportedOperationCount;
+} OsTransactionInfo;
 
 typedef struct OsCallbackInfo {
     OsStructureType sType;
-    void* pNext;
+    void*           pNext;
 } OsCallbackInfo;
 
-typedef struct OsTransactionInfo {
+typedef struct OsInterfaceCreateInfo {
+    OsStructureType     sType;
+    void*               pNext;
+    OsPhysicalInterface physicalInterface;
+} OsInterfaceCreateInfo;
+
+typedef struct OsDeviceCreateInfo {
     OsStructureType sType;
-    void* pNext;
-} OsTransactionInfo;
+    void*           pNext;
+    OsInterface     interface;
+    void*           address;
+} OsDeviceCreateInfo;
+
+typedef struct OsBufferCreateInfo {
+    OsStructureType   sType;
+    void*             pNext;
+    OsBufferUsage     usage;
+    OsBufferType      type;
+    OsBufferBehaviour behaviour;
+    uint32_t          size;
+} OsBufferCreateInfo;
+
+typedef struct OsTransactionCreateInfo {
+    OsStructureType        sType;
+    void*                  pNext;
+    OsBuffer               bufferSource;
+    OsBuffer               bufferTarget;
+    OsDevice               device;
+    OsTransactionOperation operation;
+} OsTransactionCreateInfo;
+
+typedef struct OsCallbackRegistryInfo {
+    OsStructureType sType;
+    void*           pNext;
+    void          (*pFunction) (void* userData);
+    void*           userData;
+} OsCallbackRegistryInfo;
 
 #endif //LIBOSMIO_STRUCTURES_H
