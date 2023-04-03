@@ -14,15 +14,31 @@
 // Structures //
 // ---------- //
 
+typedef struct OsProtocolInfo {
+    OsStructureType sType;
+    void* pNext;
+    char* name;
+} OsProtocolInfo;
+
 typedef struct OsAddressType {
+    OsStructureType sType;
+    void* pNext;
     OsAddressFormat format;
     uint32_t maximumLength;
 } OsAddressType;
 
 typedef struct OsProtocolFeatures {
+    OsStructureType sType;
+    void* pNext;
     OsAddressType addressType;
     uint32_t maximumDeviceCount;
 } OsProtocolFeatures;
+
+typedef struct OsPhysicalInterfaceInfo {
+    OsStructureType sType;
+    void* pNext;
+    uint32_t transmissionRate;
+} OsPhysicalInterfaceInfo;
 
 typedef struct OsDeviceCreateInfo {
     OsStructureType sType;
@@ -55,15 +71,13 @@ typedef struct OsCallbackRegistryInfo {
 } OsCallbackRegistryInfo;
 
 typedef struct OsCallbackInfo {
+    OsStructureType sType;
+    void* pNext;
 } OsCallbackInfo;
 
-typedef struct OsProtocolInfo {
-} OsProtocolInfo;
-
-typedef struct OsPhysicalInterfaceInfo {
-} OsPhysicalInterfaceInfo;
-
 typedef struct OsTransactionInfo {
+    OsStructureType sType;
+    void* pNext;
 } OsTransactionInfo;
 
 #endif //LIBOSMIO_STRUCTURES_H
