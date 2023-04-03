@@ -25,7 +25,8 @@ typedef struct OsProtocolInfo {
     OsStructureType sType;
     void*           pNext;
     char*           name;
-    OsAddressType   addressType;
+    OsAddressType   joinType;
+    OsAddressType   targetType;
 } OsProtocolInfo;
 
 typedef struct OsRange {
@@ -61,6 +62,7 @@ typedef struct OsInterfaceCreateInfo {
     OsStructureType     sType;
     void*               pNext;
     OsPhysicalInterface physicalInterface;
+    void*               address;
 } OsInterfaceCreateInfo;
 
 typedef struct OsDeviceCreateInfo {
