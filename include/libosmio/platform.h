@@ -14,12 +14,17 @@
 #define OS_FUNCTION_PTR_PREFIX PFN_
 #define OS_FUNCTION_PTR_ADD_PREFIX(name) CONCATENATE(OS_FUNCTION_PTR_PREFIX, name)
 
-#define OS_DECLARE_FUNCTION(returnType, name, ...)                                      \
-     returnType name(__VA_ARGS__);
-
-#define OS_DECLARE_FUNCTION_ICD(returnType, name, ...)                                  \
+#ifndef OS_DECLARE_FUNCTION_GLOBAL
+#define OS_DECLARE_FUNCTION_GLOBAL(returnType, name, ...)                               \
     typedef returnType (OS_FUNCTION_PTR OS_FUNCTION_PTR_ADD_PREFIX(name))(__VA_ARGS__); \
-    OS_DECLARE_FUNCTION(returnType, name, __VA_ARGS__)
+    returnType name(__VA_ARGS__)
+#endif
+
+#ifndef OS_DECLARE_FUNCTION_INSTANCE
+#define OS_DECLARE_FUNCTION_INSTANCE(returnType, name, ...)                             \
+    typedef returnType (OS_FUNCTION_PTR OS_FUNCTION_PTR_ADD_PREFIX(name))(__VA_ARGS__); \
+    returnType name(__VA_ARGS__)
+#endif
 
 
 #include <cstdint>

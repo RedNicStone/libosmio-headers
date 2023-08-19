@@ -10,8 +10,6 @@
 // Enumerations //
 // ------------ //
 
-#include "handles.h"
-
 typedef enum OsStructureType {
     OS_ADDRESS_TYPE             = 0,
     OS_PROTOCOL_INFO            = 1,
@@ -27,10 +25,10 @@ typedef enum OsStructureType {
 } OsStructureType;
 
 typedef enum OsResult {
-    OS_SUCCESS          = 0,
-    OS_GENERIC_ERROR    = 1,
-    OS_INTERNAL_ERROR   = 2,
-    OS_ICD_NOT_FOUND    = 3,
+    OS_SUCCESS                  = 0,
+    OS_ERROR_OUT_OF_MEMORY      = 1,
+    OS_ERROR_LOADER_INTERNAL    = 2,
+    OS_ERROR_ICD_INTERNAL       = 3,
 } OsResult;
 
 typedef enum OsBufferUsage {

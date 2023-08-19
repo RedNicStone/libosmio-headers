@@ -11,6 +11,6 @@
 #include "libosmio/enums.h"
 #include "libosmio/structures.h"
 #include "libosmio/functions.h"
-#include "libosmio/icd.h"
+#include "libosmio/version.h"
 
 #endif //LIBOSMIO_H
