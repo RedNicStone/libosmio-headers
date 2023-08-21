@@ -66,4 +66,7 @@ typedef struct OsPhysicalInterfaceProperties {
 typedef struct OsTransactionProperties {
 } OsTransactionProperties;
 
+typedef struct OsTransactionCreateInfo {
+} OsTransactionProperties;
+
 #endif //LIBOSMIO_STRUCTURES_H
