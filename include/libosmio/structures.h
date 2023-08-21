@@ -67,6 +67,6 @@ typedef struct OsTransactionProperties {
 } OsTransactionProperties;
 
 typedef struct OsTransactionCreateInfo {
-} OsTransactionProperties;
+} OsTransactionCreateInfo;
 
 #endif //LIBOSMIO_STRUCTURES_H
